@@ -1,10 +1,12 @@
-public class athlete {
+import java.util.ArrayList;
+
+public class Athlete {
     private String name;
     private String sex;
-    private byte age;
+    private int age;
     private String pays;
 
-    public athlete(String name, String sex, byte age, String pays) {
+    public Athlete(String name, String sex, int age, String pays) {
         this.name = name;
         this.sex = sex;
         this.age = age;
@@ -27,11 +29,11 @@ public class athlete {
         this.sex = sex;
     }
 
-    public byte getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(byte age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -41,5 +43,15 @@ public class athlete {
 
     public void setPays(String pays) {
         this.pays = pays;
+    }
+
+    @Override
+    public String toString() {
+        return "Athlete{" +
+                "name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", pays='" + pays + '\'' +
+                '}';
     }
 }

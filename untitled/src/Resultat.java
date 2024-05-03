@@ -1,9 +1,9 @@
-public class resultat {
+public class Resultat {
     private int score;
     private String medal;
     private boolean validated;
 
-    public resultat(int score, String medal, boolean validated) {
+    public Resultat(int score, String medal, boolean validated) {
         this.score = score;
         this.medal = medal;
         this.validated = validated;
