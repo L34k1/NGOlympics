@@ -1,4 +1,4 @@
-package src.main.java.com.isep.demo;
+package com.isep.demo;
 
 public class Athlete {
     private String name;
@@ -29,7 +29,7 @@ public class Athlete {
         this.sex = sex;
     }
 
-    public byte getAge() {
+    public int getAge() {
         return age;
     }
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="fieldName" layoutX="158.0" layoutY="69.0" promptText="Nom" />
+      <TextField fx:id="fieldGender" layoutX="158.0" layoutY="118.0" promptText="0 pour M, 1 pour F" />
+      <TextField fx:id="fieldCountry" layoutX="158.0" layoutY="168.0" promptText="Pays" />
+      <TextField fx:id="fieldBirthdate" layoutX="158.0" layoutY="214.0" promptText="AAAA-MM-JJ" />
+      <Text layoutX="101.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
+      <Text layoutX="102.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexe" />
+      <Text layoutX="102.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pays" />
+      <Text layoutX="32.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date de naissance" />
+      <Button fx:id="bConfAddAth" layoutX="460.0" layoutY="313.0" mnemonicParsing="false" text="Ajouter l'athlète" />
+      <Button fx:id="bConfAddAth1" layoutX="63.0" layoutY="313.0" mnemonicParsing="false" text="Annuler" />
+      <Button fx:id="bConfAddAth2" layoutX="233.0" layoutY="313.0" mnemonicParsing="false" text="Vider le formulaire" />
+   </children>
+</AnchorPane>

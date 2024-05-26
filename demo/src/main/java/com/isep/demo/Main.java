@@ -1,4 +1,6 @@
-package src.main.java.com.isep.demo;
+package com.isep.demo;
+
+import com.isep.demo.Athlete;
 
 public class Main {
     public static void main(String[] args) {

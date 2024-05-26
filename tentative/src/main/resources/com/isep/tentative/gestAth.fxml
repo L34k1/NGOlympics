@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestAthController">
+   <children>
+      <Button fx:id="retourMainMenu" layoutX="34.0" layoutY="32.0" mnemonicParsing="false" onAction="#onbRetourMainMenuButtonClick" prefHeight="27.0" prefWidth="157.0" text="Retour au menu princpal" />
+      <ScrollPane fx:id="scrollpaneAthletes" layoutX="89.0" layoutY="87.0" prefHeight="359.0" prefWidth="656.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
+      <Button fx:id="bAddAth" layoutX="191.0" layoutY="478.0" mnemonicParsing="false" text="Ajouter un athlète" />
+      <Button fx:id="bModAth" layoutX="371.0" layoutY="478.0" mnemonicParsing="false" text="Modifier un athlète" />
+      <Button fx:id="bRemAth" layoutX="558.0" layoutY="478.0" mnemonicParsing="false" text="Supprimer un athlète" />
+   </children>
+</AnchorPane>

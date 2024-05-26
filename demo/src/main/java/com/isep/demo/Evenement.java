@@ -3,13 +3,13 @@ package src.main.java.com.isep.demo;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class evenement {
+public class Evenement {
     private ArrayList athletes;
     private Date date;
     private discipline discipline;
     private String nom;
 
-    public evenement(ArrayList athletes, Date date, discipline discipline, String nom) {
+    public Evenement(ArrayList athletes, Date date, discipline discipline, String nom) {
         this.athletes = athletes;
         this.date = date;
         this.discipline = discipline;
@@ -59,7 +59,7 @@ public class evenement {
     }
 
     public static void createEvent(ArrayList athletes, Date date, discipline discipline, String nom) {
-        evenement newevent = new evenement(athletes, date, discipline, nom);
+        src.main.java.com.isep.demo.Evenement newevent = new src.main.java.com.isep.demo.Evenement(athletes, date, discipline, nom);
         newevent.toString();
         System.out.println("event created");
     }
