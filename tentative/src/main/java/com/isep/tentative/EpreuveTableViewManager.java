@@ -9,28 +9,30 @@ import java.time.LocalDate;
 
 public class EpreuveTableViewManager {
 
-    public void initializeTable(TableView<Athlete> tableView,
-                                TableColumn<Athlete, Integer> idCol,
-                                TableColumn<Athlete, String> nameCol,
-                                TableColumn<Athlete, Boolean> genderCol,
-                                TableColumn<Athlete, String> countryCol,
-                                TableColumn<Athlete, LocalDate> birthdateCol) {
+    public void initializeTable(TableView<Epreuve> tableView,
+                                TableColumn<Epreuve, Integer> idCol,
+                                TableColumn<Epreuve, LocalDate> dateCol,
+                                TableColumn<Epreuve, String> locationCol,
+                                TableColumn<Epreuve, Discipline> discipCol,
+                                TableColumn<Epreuve, String> nameCol
+                                ) {
         // Set up cell value factories for table columns
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date")); // Adjust property name if necessary
+        locationCol.setCellValueFactory(new PropertyValueFactory<>("location")); // Adjust property name if necessary
+        discipCol.setCellValueFactory(new PropertyValueFactory<>("discipline")); // Adjust property name if necessary
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name")); // Adjust property name if necessary
-        genderCol.setCellValueFactory(new PropertyValueFactory<>("gender")); // Adjust property name if necessary
-        countryCol.setCellValueFactory(new PropertyValueFactory<>("country")); // Adjust property name if necessary
-        birthdateCol.setCellValueFactory(new PropertyValueFactory<>("birthdate")); // Adjust property name if necessary
+
 
         // Load data into the table
         loadData(tableView);
     }
 
     // Method to load data into the table
-    private void loadData(TableView<Athlete> tableView) {
+    private void loadData(TableView<Epreuve> tableView) {
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            String sql = "SELECT * FROM \"Athlete\"";
+            String sql = "SELECT * FROM \"Epreuve\"";
             PreparedStatement statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
 
@@ -40,13 +42,11 @@ public class EpreuveTableViewManager {
             // Populate table with data from the result set
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String name = rs.getString("Nom");
-                boolean gender = rs.getBoolean("Sexe");
-                String country = rs.getString("Pays");
-                LocalDate birthdate = rs.getDate("Date de naissance").toLocalDate();
-
-                Athlete athlete = new Athlete(id, name, gender, country, birthdate);
-                tableView.getItems().add(athlete);
+                LocalDate date = rs.getDate("Date").toLocalDate();
+                String location = rs.getString("Location");
+                Discipline discipline = Discipline.fromString(rs.getString("Discipline"));
+                Epreuve epreuve = new Epreuve(id, date, location, discipline);
+                tableView.getItems().add(epreuve);
             }
 
             conn.close();

@@ -19,6 +19,7 @@ CREATE TABLE "Epreuve" (
 	"Date" timestamp,
 	"Lieu" text,
 	"Discipline" text,
+	"nom" VARCHAR(255);
 	PRIMARY KEY("id")
 );
 

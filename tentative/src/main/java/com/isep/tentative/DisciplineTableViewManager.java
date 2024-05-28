@@ -24,7 +24,7 @@ public class DisciplineTableViewManager {
     private void loadData(TableView<Discipline> tableView) {
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            String sql = "SELECT * FROM \"Athlete\"";
+            String sql = "SELECT * FROM \"Discipline\"";
             PreparedStatement statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
 
