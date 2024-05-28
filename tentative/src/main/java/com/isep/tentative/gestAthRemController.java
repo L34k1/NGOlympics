@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -45,7 +44,7 @@ public class gestAthRemController {
     private TableColumn<Athlete, String> gestAthRemPaysCol;
 
     @FXML
-    private TableColumn<Athlete, String> gestAthRemBirthdateCol;
+    private TableColumn<Athlete, LocalDate> gestAthRemBirthdateCol;
 
     @FXML
     private TextField gestAthRemIDfield;
@@ -53,48 +52,13 @@ public class gestAthRemController {
     @FXML
     private Label gestAthRemIDLabel;
 
-    // Method to initialize the controller
+    // Initialize the controller
     public void initialize() {
-        // Set up cell value factories for table columns
-        gestAthRemIDcol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        gestAthRemNomCol.setCellValueFactory(new PropertyValueFactory<>("name")); // Check if the property name is "nom" instead of "Nom"
-        gestAthRemSexeCol.setCellValueFactory(new PropertyValueFactory<>("gender")); // Check if the property name is "sexe" instead of "Sexe"
-        gestAthRemPaysCol.setCellValueFactory(new PropertyValueFactory<>("country")); // Check if the property name is "pays" instead of "Pays"
-        gestAthRemBirthdateCol.setCellValueFactory(new PropertyValueFactory<>("birthdate")); // Check if the property name is "dateOfBirth" instead of "Date de naissance"
-
-        // Load data into the table
-        loadData();
+        AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
+        tableViewManager.initializeTable(gestAthRemTableview, gestAthRemIDcol, gestAthRemNomCol, gestAthRemSexeCol, gestAthRemPaysCol, gestAthRemBirthdateCol);
     }
 
-    // Method to load data into the table
-    private void loadData() {
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            String sql = "SELECT * FROM \"Athlete\"";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
-
-            // Clear existing data in the table
-            gestAthRemTableview.getItems().clear();
-
-            // Populate table with data from the result set
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("Nom");
-                boolean gender = rs.getBoolean("Sexe");
-                String country = rs.getString("Pays");
-                LocalDate birthdate = rs.getDate("Date de naissance").toLocalDate();
-
-                Athlete athlete = new Athlete(id, name, gender, country, birthdate);
-                gestAthRemTableview.getItems().add(athlete);
-            }
-
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle SQL exception
-        }
-    }
+    // Method to load data into the table (Moved to TableViewManager)
 
     // Method to handle return button click
     @FXML
@@ -114,8 +78,8 @@ public class gestAthRemController {
             removeAthlete(Integer.parseInt(idToRemove));
         }
     }
+
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    // Method to load data into the table
 
     // Method to remove an athlete from the database
     private void removeAthlete(int id) {
@@ -129,7 +93,8 @@ public class gestAthRemController {
             if (rowsDeleted > 0) {
                 System.out.println("Athlete with ID " + id + " has been removed from the database.");
                 // Optionally, update the table view after deletion
-                loadData();
+                AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
+                tableViewManager.initializeTable(gestAthRemTableview, gestAthRemIDcol, gestAthRemNomCol, gestAthRemSexeCol, gestAthRemPaysCol, gestAthRemBirthdateCol);
             } else {
                 System.out.println("No athlete found with ID " + id);
             }

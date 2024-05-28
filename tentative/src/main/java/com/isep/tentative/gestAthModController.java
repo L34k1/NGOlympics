@@ -4,11 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -39,7 +37,7 @@ public class gestAthModController {
     private TableColumn<Athlete, String> paysCol;
 
     @FXML
-    private TableColumn<Athlete, String> dobCol;
+    private TableColumn<Athlete, LocalDate> dobCol;
 
     @FXML
     private Button bReturn;
@@ -65,42 +63,14 @@ public class gestAthModController {
     @FXML
     private TextField fieldIDselector;
 
+    // Initialize the controller
     @FXML
     public void initialize() {
-        IDcol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nomCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        sexeCol.setCellValueFactory(new PropertyValueFactory<>("gender"));
-        paysCol.setCellValueFactory(new PropertyValueFactory<>("country"));
-        dobCol.setCellValueFactory(new PropertyValueFactory<>("birthdate"));
-
-        loadData();
+        AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
+        tableViewManager.initializeTable(table, IDcol, nomCol, sexeCol, paysCol, dobCol);
     }
 
-    private void loadData() {
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            String sql = "SELECT * FROM \"Athlete\"";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
-
-            table.getItems().clear();
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String nom = rs.getString("Nom");
-                boolean sexe = rs.getBoolean("Sexe");
-                String pays = rs.getString("Pays");
-                String dob = rs.getString("Date de naissance");
-
-                Athlete athlete = new Athlete(id, nom, sexe, pays, LocalDate.parse(dob));
-                table.getItems().add(athlete);
-            }
-
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    // Method to load data into the table (Moved to TableViewManager)
 
     @FXML
     private void onBModClick() {
@@ -133,7 +103,8 @@ public class gestAthModController {
 
             if (rowsUpdated > 0) {
                 System.out.println("Athlete with ID " + id + " has been updated.");
-                loadData();
+                AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
+                tableViewManager.initializeTable(table, IDcol, nomCol, sexeCol, paysCol, dobCol);
             } else {
                 System.out.println("No athlete found with ID " + id);
             }
