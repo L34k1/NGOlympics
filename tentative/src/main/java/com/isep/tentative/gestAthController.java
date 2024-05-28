@@ -97,7 +97,7 @@ public class gestAthController {
     protected void onbModAthButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAthMod.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        mainStage.setTitle("Add Athlete");
+        mainStage.setTitle("Modify Athlete");
         mainStage.setScene(scene);
     }
     @FXML
