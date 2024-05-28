@@ -16,8 +16,17 @@ public class MainMenuController {
     @FXML
     private Button bGestAth;
     @FXML
+    private Button bGestRes;
+    @FXML
     protected void onbGestAthButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestAth.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        mainStage.setTitle("Hello!");
+        mainStage.setScene(scene);
+    }
+    @FXML
+    protected void onbGestResButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestRes.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 680, 900);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
