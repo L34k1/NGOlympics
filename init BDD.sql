@@ -39,17 +39,17 @@ ALTER TABLE "Resultat"
 ADD FOREIGN KEY("id") REFERENCES "Epreuve"("id")
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 
-INSERT INTO "Athlète" ("Nom", "Sexe", "Pays", "Date de naissance")
+INSERT INTO "Athlete" ("Nom", "Sexe", "Pays", "Date de naissance")
 VALUES ('Maria Rodriguez', FALSE, 'Spain', '1995-08-12');
 
-INSERT INTO "Athlète" ("Nom", "Sexe", "Pays", "Date de naissance")
+INSERT INTO "Athlete" ("Nom", "Sexe", "Pays", "Date de naissance")
 VALUES ('Alexander Smith', TRUE, 'United States', '1990-04-25');
 
-INSERT INTO "Athlète" ("Nom", "Sexe", "Pays", "Date de naissance")
+INSERT INTO "Athlete" ("Nom", "Sexe", "Pays", "Date de naissance")
 VALUES ('Li Wei', TRUE, 'China', '1992-11-30');
 
-INSERT INTO "Athlète" ("Nom", "Sexe", "Pays", "Date de naissance")
+INSERT INTO "Athlete" ("Nom", "Sexe", "Pays", "Date de naissance")
 VALUES ('Anna Müller', FALSE, 'Germany', '1988-07-18');
 
-INSERT INTO "Athlète" ("Nom", "Sexe", "Pays", "Date de naissance")
+INSERT INTO "Athlete" ("Nom", "Sexe", "Pays", "Date de naissance")
 VALUES ('Rafael Dos Santos', TRUE, 'Brazil', '1994-03-10');
