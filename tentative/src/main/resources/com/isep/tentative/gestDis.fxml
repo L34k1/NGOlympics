@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestDisController">
 
     <children>
@@ -16,7 +18,8 @@
         </TableView>
         <Button fx:id="bRetour" layoutX="70.0" layoutY="45.0" mnemonicParsing="false" onAction="#onbRetourMainMenuButtonClick" text="Retour au menu principal" />
         <Button fx:id="bAdd" layoutX="70.0" layoutY="336.0" mnemonicParsing="false" onAction="#onbAddDisButtonClick" text="Ajouter" />
-        <Button fx:id="bMod" layoutX="274.0" layoutY="336.0" mnemonicParsing="false" onAction="#onbModDisButtonClick" text="Modifier" />
-        <Button fx:id="bRem" layoutX="488.0" layoutY="336.0" mnemonicParsing="false" onAction="#onbRemDisButtonClick" text="Supprimer" />
+        <Button fx:id="bRem" layoutX="488.0" layoutY="336.0" mnemonicParsing="false" onAction="#onbRemDiscipline" text="Supprimer" />
+        <TextField fx:id="fieldRemSelector" layoutX="488.0" layoutY="436.0"/>
+        <Label layoutX="358.0" layoutY="436.0" text="Discipline ID to remove" />
     </children>
 </AnchorPane>

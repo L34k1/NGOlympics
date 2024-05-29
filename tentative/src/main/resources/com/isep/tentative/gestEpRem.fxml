@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestEpreuveRemController">
+    <children>
+        <Button fx:id="bGestEpreuveRemReturn" layoutX="143.0" layoutY="320.0" mnemonicParsing="false" text="Annuler" onAction="#onBGestEpreuveRemReturnButtonClick"/>
+        <Button fx:id="bGestEpreuveRemRemove" layoutX="403.0" layoutY="320.0" mnemonicParsing="false" text="Supprimer épreuve" onAction="#onBGestEpreuveRemRemoveButtonClick"/>
+        <TableView fx:id="gestEpreuveRemTableview" layoutX="114.0" layoutY="75.0" prefHeight="200.0" prefWidth="373.0">
+            <columns>
+                <TableColumn fx:id="gestEpreuveRemIDcol" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="gestEpreuveRemLieuCol" prefWidth="75.0" text="Lieu" />
+                <TableColumn fx:id="gestEpreuveRemDateCol" prefWidth="75.0" text="date" />
+            </columns>
+        </TableView>
+        <TextField fx:id="gestEpreuveRemIDfield" layoutX="233.0" layoutY="320.0" />
+        <Label layoutX="252.0" layoutY="303.0" text="Epreuve ID to remove" />
+    </children>
+</AnchorPane>

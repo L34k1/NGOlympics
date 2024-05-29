@@ -31,6 +31,15 @@ public class gestResultModController {
     private TableColumn<Resultat, Boolean> ValidationCol;
 
     @FXML
+    private TableColumn<Resultat, Integer> athleteIDcol;
+
+    @FXML
+    private TableColumn<Resultat, Integer> epreuveIDcol;
+
+    @FXML
+    private TableColumn<Resultat, String> scoreCol;
+
+    @FXML
     private Button bReturn;
 
     @FXML
@@ -49,9 +58,18 @@ public class gestResultModController {
     private TextField fieldIDselector;
 
     @FXML
+    private TextField fieldNewAthleteID;
+
+    @FXML
+    private TextField fieldNewEpreuveID;
+
+    @FXML
+    private TextField fieldNewScore;
+
+    @FXML
     public void initialize() {
         ResultTableViewManager tableViewManager = new ResultTableViewManager();
-        tableViewManager.initializeTable(table, IDcol, MedailleCol, ValidationCol);
+        tableViewManager.initializeTable(table, IDcol, MedailleCol, ValidationCol, athleteIDcol, epreuveIDcol, scoreCol);
     }
 
     @FXML
@@ -59,6 +77,9 @@ public class gestResultModController {
         String idText = fieldIDselector.getText();
         String newMedaille = fieldNewMedaille.getText();
         String newValidation = fieldNewValidation.getText();
+        String idAth = fieldNewAthleteID.getText();
+        String idEp = fieldNewEpreuveID.getText();
+        String Score = fieldNewScore.getText();
 
         if (idText.isEmpty() || newMedaille.isEmpty() || newValidation.isEmpty()) {
             System.out.println("Please fill all fields before modifying.");
@@ -74,20 +95,26 @@ public class gestResultModController {
             int id = Integer.parseInt(idText);
             char medailleChar = newMedaille.charAt(0);
             boolean validation = Boolean.parseBoolean(newValidation);
+            int idNewAth = Integer.parseInt(idAth);
+            int idNewEp = Integer.parseInt(idEp);
+            String score = String.valueOf(Score);
 
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            String sql = "UPDATE \"Resultat\" SET \"Medaille\" = ?, \"Validation\" = ? WHERE id = ?";
+            String sql = "UPDATE \"Resultat\" SET \"Médaille\" = ?, \"Validation\" = ?, \"Athlete_ID\" = ?, \"Score\" = ?, \"Epreuve_ID\" = ? WHERE id = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, String.valueOf(medailleChar)); // Store as String but only one character
-            statement.setBoolean(2, validation);
-            statement.setInt(3, id);
+            statement.setString(1, String.valueOf(medailleChar)); // Set the value for the first parameter (Medaille)
+            statement.setBoolean(2, validation); // Set the value for the second parameter (Validation)
+            statement.setInt(3, idNewAth); // Set the value for the third parameter (Athlete ID)
+            statement.setString(4, score); // Set the value for the fifth parameter (Score)
+            statement.setInt(5, idNewEp); // Set the value for the fourth parameter (Epreuve ID)
+            statement.setInt(6, id); // Set the value for the sixth parameter (ID)
 
             int rowsUpdated = statement.executeUpdate();
 
             if (rowsUpdated > 0) {
                 System.out.println("Result with ID " + id + " has been updated.");
                 ResultTableViewManager tableViewManager = new ResultTableViewManager();
-                tableViewManager.initializeTable(table, IDcol, MedailleCol, ValidationCol);
+                tableViewManager.initializeTable(table, IDcol, MedailleCol, ValidationCol, athleteIDcol, epreuveIDcol, scoreCol);
             } else {
                 System.out.println("No Result found with ID " + id);
             }
@@ -107,7 +134,7 @@ public class gestResultModController {
 
     @FXML
     private void onBReturnClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestResult.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestRes.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         mainStage.setTitle("Return");
         mainStage.setScene(scene);

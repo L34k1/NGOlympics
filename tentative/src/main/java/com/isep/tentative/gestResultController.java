@@ -6,7 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import static com.isep.tentative.HelloApplication.mainStage;
 
@@ -28,6 +34,15 @@ public class gestResultController {
     private TableColumn<Resultat, Boolean> validationCol;
 
     @FXML
+    private TableColumn<Resultat, Integer> athleteIDcol;
+
+    @FXML
+    private TableColumn<Resultat, Integer> epreuveIDcol;
+
+    @FXML
+    private TableColumn<Resultat, String> scoreCol;
+
+    @FXML
     private Button bAdd;
 
     @FXML
@@ -37,9 +52,12 @@ public class gestResultController {
     private Button bRem;
 
     @FXML
+    private TextField fieldRemSelector;
+
+    @FXML
     public void initialize() {
         ResultTableViewManager tableViewManager = new ResultTableViewManager();
-        tableViewManager.initializeTable(table, idCol, medailleCol, validationCol);
+        tableViewManager.initializeTable(table, idCol, medailleCol, validationCol, athleteIDcol, epreuveIDcol, scoreCol);
     }
 
     @FXML
@@ -60,17 +78,39 @@ public class gestResultController {
 
     @FXML
     protected void onbModResultButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestResultMod.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestResMod.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         mainStage.setTitle("Modify Result");
         mainStage.setScene(scene);
     }
 
     @FXML
-    protected void onbRemResultButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestResultRem.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        mainStage.setTitle("Remove Result");
-        mainStage.setScene(scene);
+    protected void onbRemResultButtonClick() {
+        String idToRemove = fieldRemSelector.getText();
+        if (!idToRemove.isEmpty()) {
+            removeResult(Integer.parseInt(idToRemove));
+        }
+    }
+
+    private void removeResult(int id) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+            String sql = "DELETE FROM \"Resultat\" WHERE id = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            int rowsDeleted = statement.executeUpdate();
+
+            if (rowsDeleted > 0) {
+                System.out.println("Result with ID " + id + " has been removed from the database.");
+                ResultTableViewManager tableViewManager = new ResultTableViewManager();
+                tableViewManager.initializeTable(table,idCol,medailleCol, validationCol, athleteIDcol, epreuveIDcol, scoreCol);  // Fixed name here
+            } else {
+                System.out.println("No Result found with ID " + id);
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

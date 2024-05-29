@@ -22,6 +22,15 @@ public class gestResultAddController {
     private TextField fieldValidation;
 
     @FXML
+    private TextField fieldAthleteID;
+
+    @FXML
+    private TextField fieldScore;
+
+    @FXML
+    private TextField fieldEpreuveID;
+
+    @FXML
     private Button bConfAddResult;
 
     @FXML
@@ -34,13 +43,18 @@ public class gestResultAddController {
     protected void onbConfAddResultButtonClick() {
         String medaille = fieldMedaille.getText();
         String validation = fieldValidation.getText();
-
+        Integer athlete_id = Integer.valueOf(fieldAthleteID.getText());
+        String score = fieldScore.getText();
+        Integer epreuve_id = Integer.valueOf(fieldEpreuveID.getText());
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            String sql = "INSERT INTO \"Resultat\" (\"Médaille\", \"Validation\") VALUES (?, ?)";
+            String sql = "INSERT INTO \"Resultat\" (\"Médaille\", \"Validation\", \"Athlete_ID\", \"Score\", \"Epreuve_ID\") VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, medaille);
             statement.setBoolean(2, Boolean.parseBoolean(validation));
+            statement.setInt(3, athlete_id);
+            statement.setString(4, score);
+            statement.setInt(5, epreuve_id);
             statement.executeUpdate();
             conn.close();
         } catch (SQLException e) {
@@ -50,7 +64,7 @@ public class gestResultAddController {
 
     @FXML
     protected void onbConfAddResult1ButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestResult.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestRes.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 680, 900);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);

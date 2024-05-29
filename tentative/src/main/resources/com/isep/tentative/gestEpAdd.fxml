@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestEpreuveAddController">
+   <children>
+      <TextField fx:id="fieldLieu" layoutX="158.0" layoutY="69.0" promptText="Lieu" />
+      <TextField fx:id="fieldDate" layoutX="158.0" layoutY="118.0" promptText="date" />
+      <Text layoutX="101.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu" />
+      <Text layoutX="102.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date" />
+      <Button fx:id="bConfAddEpreuve" layoutX="460.0" layoutY="313.0" mnemonicParsing="false" text="Ajouter l'épreuve" onAction="#onbConfAddEpreuveButtonClick" />
+      <Button fx:id="bConfAddEpreuve1" layoutX="63.0" layoutY="313.0" mnemonicParsing="false" text="Annuler" onAction="#onbConfAddEpreuve1ButtonClick" />
+      <Button fx:id="bConfAddEpreuve2" layoutX="233.0" layoutY="313.0" mnemonicParsing="false" text="Vider le formulaire" onAction="#onbConfAddEpreuve2ButtonClick" />
+   </children>
+</AnchorPane>

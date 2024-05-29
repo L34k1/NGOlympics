@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestEpreuveModController">
+    <children>
+        <TableView fx:id="table" layoutX="110.0" layoutY="51.0" prefHeight="200.0" prefWidth="381.0">
+            <columns>
+                <TableColumn fx:id="IDcol" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="nomCol" prefWidth="75.0" text="Lieu" />
+                <TableColumn fx:id="dobCol" prefWidth="75.0" text="date" />
+            </columns>
+        </TableView>
+        <Button fx:id="bReturn" layoutX="29.0" layoutY="39.0" mnemonicParsing="false" text="Annuler" onAction="#onBReturnClick" />
+        <Button fx:id="bMod" layoutX="447.0" layoutY="336.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" text="Modifier" onAction="#onBModClick" />
+        <TextField fx:id="fieldNewLieu" layoutX="110.0" layoutY="271.0" promptText="Nouveau lieu" />
+        <TextField fx:id="fieldNewDate" layoutX="342.0" layoutY="271.0" promptText="Nouvelle date" />
+        <Label layoutX="73.0" layoutY="275.0" text="Lieu" />
+        <Label layoutX="501.0" layoutY="275.0" text="date" />
+        <Label layoutX="276.0" layoutY="323.0" text="Selecteur" />
+        <TextField fx:id="fieldIDselector" layoutX="226.0" layoutY="344.0" promptText="ID choisi" />
+        <Button fx:id="bClear" layoutX="100.0" layoutY="344.0" mnemonicParsing="false" text="Vider les champs" onAction="#onBClearClick" />
+    </children>
+</AnchorPane>

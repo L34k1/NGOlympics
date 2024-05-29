@@ -6,7 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import static com.isep.tentative.HelloApplication.mainStage;
 
@@ -28,10 +34,10 @@ public class gestDisController {
     private Button bAdd;
 
     @FXML
-    private Button bMod;
+    private Button bRem;
 
     @FXML
-    private Button bRem;
+    private TextField fieldRemSelector;
 
     @FXML
     public void initialize() {
@@ -56,18 +62,32 @@ public class gestDisController {
     }
 
     @FXML
-    protected void onbModDisButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestDisMod.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        mainStage.setTitle("Modify Discipline");
-        mainStage.setScene(scene);
+    protected void onbRemDiscipline() {
+        // Implement action for remove button
+        String idToRemove = fieldRemSelector.getText();
+        if (!idToRemove.isEmpty()) {
+            removeDiscipline(Integer.parseInt(idToRemove));
+        }
     }
+    private void removeDiscipline(int id) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+            String sql = "DELETE FROM \"Discipline\" WHERE id = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            int rowsDeleted = statement.executeUpdate();
 
-    @FXML
-    protected void onbRemDisButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestDisRem.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        mainStage.setTitle("Remove Discipline");
-        mainStage.setScene(scene);
+            if (rowsDeleted > 0) {
+                System.out.println("Discipline with ID " + id + " has been removed from the database.");
+                DisciplineTableViewManager tableViewManager = new DisciplineTableViewManager();
+                tableViewManager.initializeTable(table,idCol,nameCol);  // Fixed name here
+            } else {
+                System.out.println("No Discipline found with ID " + id);
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

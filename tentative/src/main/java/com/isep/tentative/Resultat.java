@@ -4,34 +4,38 @@ public class Resultat {
     private int id;
     private char medaille;
     private boolean validation;
+    private int athlete_ID;
+    private int epreuve_ID;
+    private String score;
 
-    public Resultat(int id, char medaille, boolean validation) {
+    public Resultat(int id, char medaille, boolean validation, int athlete_ID, int epreuve_ID, String score) {
         this.id = id;
         this.medaille = medaille;
         this.validation = validation;
+        this.athlete_ID = athlete_ID;
+        this.epreuve_ID = epreuve_ID;
+        this.score = score;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public char getMedaille() {
         return medaille;
-    }
-
-    public void setMedaille(char medaille) {
-        this.medaille = medaille;
     }
 
     public boolean isValidation() {
         return validation;
     }
 
-    public void setValidation(boolean validation) {
-        this.validation = validation;
+    public int getAthlete_ID() {
+        return athlete_ID;
     }
+
+    public int getEpreuve_ID() {
+        return epreuve_ID;
+    }
+
+    public String getScore() {return score;}
 }
