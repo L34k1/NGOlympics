@@ -15,7 +15,7 @@
             <TableColumn fx:id="validationCol" prefWidth="75.0" text="validation" />
         </columns>
       </TableView>
-      <Button fx:id="bRetour" layoutX="70.0" layoutY="45.0" mnemonicParsing="false" text="Retour au menu principal" />
+      <Button fx:id="bRetour" layoutX="70.0" layoutY="45.0" mnemonicParsing="false" text="Retour au menu principal" onAction="#onbRetourMainMenuButtonClick" />
       <Button fx:id="bAdd" layoutX="70.0" layoutY="336.0" mnemonicParsing="false" text="Ajouter" onAction="#onbAddResultButtonClick"/>
       <Button fx:id="bMod" layoutX="274.0" layoutY="336.0" mnemonicParsing="false" text="Modifier" />
       <Button fx:id="bRem" layoutX="488.0" layoutY="336.0" mnemonicParsing="false" text="Supprimer" />
