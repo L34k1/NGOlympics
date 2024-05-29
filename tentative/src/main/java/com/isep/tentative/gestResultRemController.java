@@ -44,13 +44,11 @@ public class gestResultRemController {
     @FXML
     private Label gestResultRemIDLabel;
 
-    // Initialize the controller
     public void initialize() {
         ResultTableViewManager tableViewManager = new ResultTableViewManager();
         tableViewManager.initializeTable(gestResultRemTableview, gestResultRemIDcol, gestResultRemMedailleCol, gestResultRemValidationCol);
     }
 
-    // Method to handle return button click
     @FXML
     protected void onBGestResultRemReturnButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestResult.fxml"));
@@ -59,7 +57,6 @@ public class gestResultRemController {
         mainStage.setScene(scene);
     }
 
-    // Method to handle remove button click
     @FXML
     protected void onBGestResultRemRemoveButtonClick() {
         String idToRemove = gestResultRemIDfield.getText();
@@ -70,7 +67,6 @@ public class gestResultRemController {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    // Method to remove a Result from the database
     private void removeResult(int id) {
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
@@ -81,7 +77,6 @@ public class gestResultRemController {
 
             if (rowsDeleted > 0) {
                 System.out.println("Result with ID " + id + " has been removed from the database.");
-                // Optionally, update the table view after deletion
                 ResultTableViewManager tableViewManager = new ResultTableViewManager();
                 tableViewManager.initializeTable(gestResultRemTableview, gestResultRemIDcol, gestResultRemMedailleCol, gestResultRemValidationCol);
             } else {
@@ -91,7 +86,6 @@ public class gestResultRemController {
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle SQL exception
         }
     }
 }

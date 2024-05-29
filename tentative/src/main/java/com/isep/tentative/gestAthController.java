@@ -35,9 +35,12 @@ public class gestAthController {
     private TableColumn<Athlete, LocalDate> gestAthBirthdateCol;
 
     @FXML
+    private TableColumn<Athlete, Integer> gestAthDiscIDCol;
+
+    @FXML
     public void initialize() {
         AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
-        tableViewManager.initializeTable(tableViewAth, gestAthIDcol, gestAthNomCol, gestAthSexeCol, gestAthPaysCol, gestAthBirthdateCol);
+        tableViewManager.initializeTable(tableViewAth, gestAthIDcol, gestAthNomCol, gestAthSexeCol, gestAthPaysCol, gestAthBirthdateCol, gestAthDiscIDCol);
     }
 
     @FXML
@@ -67,6 +70,14 @@ public class gestAthController {
     @FXML
     protected void onbRemAthButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAthRem.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        mainStage.setTitle("Remove Athlete");
+        mainStage.setScene(scene);
+    }
+
+    @FXML
+    protected void onbAthAddDisButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAthAddDis.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         mainStage.setTitle("Remove Athlete");
         mainStage.setScene(scene);

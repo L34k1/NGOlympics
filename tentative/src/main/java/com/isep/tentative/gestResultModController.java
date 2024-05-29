@@ -48,7 +48,6 @@ public class gestResultModController {
     @FXML
     private TextField fieldIDselector;
 
-    // Initialize the controller
     @FXML
     public void initialize() {
         ResultTableViewManager tableViewManager = new ResultTableViewManager();

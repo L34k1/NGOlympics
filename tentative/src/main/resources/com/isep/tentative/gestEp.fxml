@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestEpController">
+    <children>
+        <Button fx:id="retourMainMenu" layoutX="34.0" layoutY="32.0" mnemonicParsing="false" onAction="#onbRetourMainMenuButtonClick" prefHeight="27.0" prefWidth="157.0" text="Retour au menu principal" />
+        <Button fx:id="bAddEp" layoutX="191.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbAddEpButtonClick" text="Ajouter une épreuve" />
+        <Button fx:id="bModEp" layoutX="371.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbModEpButtonClick" text="Modifier une épreuve" />
+        <Button fx:id="bRemEp" layoutX="558.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbRemEpButtonClick" text="Supprimer une épreuve" />
+        <Button fx:id="bEpAddDis" layoutX="720.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbEpAddDisButtonClick" text="Définir une discipline pour une épreuve" />
+        <TableView fx:id="tableViewEp" layoutX="174.0" layoutY="94.0" prefHeight="322.0" prefWidth="512.0">
+            <columns>
+                <TableColumn fx:id="gestEpIDcol" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="gestEpDateCol" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="gestEpLocationCol" prefWidth="75.0" text="Lieu" />
+                <TableColumn fx:id="gestEpDisciplineCol" prefWidth="75.0" text="Discipline" />
+                <TableColumn fx:id="gestEpNameCol" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="gestEpDiscIDCol" prefWidth="75.0" text="Discipline ID" />
+                <TableColumn fx:id="gestEpAthleteIDListCol" prefWidth="75.0" text="Liste d'ID des Athlètes" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

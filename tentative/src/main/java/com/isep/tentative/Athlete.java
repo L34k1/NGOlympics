@@ -15,16 +15,29 @@ public class Athlete {
     private BooleanProperty gender;
     private StringProperty country;
     private StringProperty birthdate;
+    private IntegerProperty Discipline_ID;;
 
-    public Athlete(int id, String name, boolean gender, String country, LocalDate birthdate) {
+    public Athlete(int id, String name, boolean gender, String country, LocalDate birthdate, int disID) {
         this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.gender = new SimpleBooleanProperty(gender);
         this.country = new SimpleStringProperty(country);
         this.birthdate = new SimpleStringProperty(String.valueOf(birthdate));
+        this.Discipline_ID = new SimpleIntegerProperty();
     }
 
-    // Getters and setters for id
+    public int getDiscipline_ID() {
+        return Discipline_ID.get();
+    }
+
+    public IntegerProperty discipline_IDProperty() {
+        return Discipline_ID;
+    }
+
+    public void setDiscipline_ID(int discipline_ID) {
+        this.Discipline_ID.set(discipline_ID);
+    }
+
     public int getId() {
         return id.get();
     }
@@ -37,7 +50,6 @@ public class Athlete {
         return id;
     }
 
-    // Getters and setters for name
     public String getName() {
         return name.get();
     }
@@ -50,7 +62,6 @@ public class Athlete {
         return name;
     }
 
-    // Getters and setters for gender
     public boolean isGender() {
         return gender.get();
     }
@@ -63,7 +74,6 @@ public class Athlete {
         return gender;
     }
 
-    // Getters and setters for country
     public String getCountry() {
         return country.get();
     }
@@ -76,7 +86,6 @@ public class Athlete {
         return country;
     }
 
-    // Getters and setters for birthdate
     public String getBirthdate() {
         return birthdate.get();
     }

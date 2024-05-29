@@ -31,4 +31,20 @@ public class MainMenuController {
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
+
+    @FXML
+    protected void onbGestDisButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestDis.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        mainStage.setTitle("Hello!");
+        mainStage.setScene(scene);
+    }
+
+    @FXML
+    protected void onbGestEpButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestEp.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        mainStage.setTitle("Hello!");
+        mainStage.setScene(scene);
+    }
 }

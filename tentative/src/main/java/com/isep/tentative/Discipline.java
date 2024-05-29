@@ -32,10 +32,22 @@ public class Discipline {
 
     // Static factory method to create a Discipline from a String
     public static Discipline fromString(String disciplineString) {
-        // Assuming the string format is "id:name"
         String[] parts = disciplineString.split(":");
-        int id = Integer.parseInt(parts[0]);
-        String name = parts[1];
-        return new Discipline(id, name);
+        if (parts.length == 1) {
+            // If only the name is provided, assume ID as 0
+            return new Discipline(0, parts[0]);
+        } else if (parts.length == 2) {
+            try {
+                int id = Integer.parseInt(parts[0]);
+                String name = parts[1];
+                return new Discipline(id, name);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid discipline ID: " + parts[0], e);
+            }
+        } else {
+            throw new IllegalArgumentException("Invalid discipline string format: " + disciplineString);
+        }
     }
+
+
 }

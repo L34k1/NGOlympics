@@ -6,53 +6,55 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EpreuveTableViewManager {
+
+    private static final Logger LOGGER = Logger.getLogger(EpreuveTableViewManager.class.getName());
 
     public void initializeTable(TableView<Epreuve> tableView,
                                 TableColumn<Epreuve, Integer> idCol,
                                 TableColumn<Epreuve, LocalDate> dateCol,
                                 TableColumn<Epreuve, String> locationCol,
                                 TableColumn<Epreuve, Discipline> discipCol,
-                                TableColumn<Epreuve, String> nameCol
-                                ) {
-        // Set up cell value factories for table columns
+                                TableColumn<Epreuve, String> nameCol,
+                                TableColumn<Epreuve, Integer> discIDCol,
+                                TableColumn<Epreuve, String> athleteIDListCol) {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("date")); // Adjust property name if necessary
-        locationCol.setCellValueFactory(new PropertyValueFactory<>("location")); // Adjust property name if necessary
-        discipCol.setCellValueFactory(new PropertyValueFactory<>("discipline")); // Adjust property name if necessary
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name")); // Adjust property name if necessary
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
+        discipCol.setCellValueFactory(new PropertyValueFactory<>("discipline"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        discIDCol.setCellValueFactory(new PropertyValueFactory<>("discipline_ID")); // Corrected property name
+        athleteIDListCol.setCellValueFactory(new PropertyValueFactory<>("athlete_ID_List"));
 
-
-        // Load data into the table
         loadData(tableView);
     }
 
-    // Method to load data into the table
     private void loadData(TableView<Epreuve> tableView) {
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+        try (Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root")) {
             String sql = "SELECT * FROM \"Epreuve\"";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
+            try (PreparedStatement statement = conn.prepareStatement(sql);
+                 ResultSet rs = statement.executeQuery()) {
 
-            // Clear existing data in the table
-            tableView.getItems().clear();
+                tableView.getItems().clear();
 
-            // Populate table with data from the result set
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                LocalDate date = rs.getDate("Date").toLocalDate();
-                String location = rs.getString("Location");
-                Discipline discipline = Discipline.fromString(rs.getString("Discipline"));
-                Epreuve epreuve = new Epreuve(id, date, location, discipline);
-                tableView.getItems().add(epreuve);
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    LocalDate date = rs.getDate("date").toLocalDate();
+                    String location = rs.getString("location");
+                    Discipline discipline = Discipline.fromString(rs.getString("discipline"));
+                    String name = rs.getString("Nom");
+                    int discipline_ID = rs.getInt("Discipline_ID");
+                    String athlete_ID_List = rs.getString("Athlete_ID_List");
+
+                    Epreuve epreuve = new Epreuve(id, date, location, discipline, name, discipline_ID, athlete_ID_List);
+                    tableView.getItems().add(epreuve);
+                }
             }
-
-            conn.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error loading data from database", e);
         }
     }
 }
-

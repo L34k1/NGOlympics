@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -47,20 +46,20 @@ public class gestAthRemController {
     private TableColumn<Athlete, LocalDate> gestAthRemBirthdateCol;
 
     @FXML
+    private TableColumn<Athlete, Integer> gestAthRemDiscIDCol;  // Fixed name here
+
+    @FXML
     private TextField gestAthRemIDfield;
 
     @FXML
     private Label gestAthRemIDLabel;
 
-    // Initialize the controller
     public void initialize() {
         AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
-        tableViewManager.initializeTable(gestAthRemTableview, gestAthRemIDcol, gestAthRemNomCol, gestAthRemSexeCol, gestAthRemPaysCol, gestAthRemBirthdateCol);
+        tableViewManager.initializeTable(gestAthRemTableview, gestAthRemIDcol, gestAthRemNomCol, gestAthRemSexeCol, gestAthRemPaysCol, gestAthRemBirthdateCol, gestAthRemDiscIDCol);  // Fixed name here
     }
 
-    // Method to load data into the table (Moved to TableViewManager)
 
-    // Method to handle return button click
     @FXML
     protected void onBGestAthRemReturnButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAth.fxml"));
@@ -69,7 +68,6 @@ public class gestAthRemController {
         mainStage.setScene(scene);
     }
 
-    // Method to handle remove button click
     @FXML
     protected void onBGestAthRemRemoveButtonClick() {
         // Implement action for remove button
@@ -81,7 +79,6 @@ public class gestAthRemController {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    // Method to remove an athlete from the database
     private void removeAthlete(int id) {
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
@@ -92,9 +89,8 @@ public class gestAthRemController {
 
             if (rowsDeleted > 0) {
                 System.out.println("Athlete with ID " + id + " has been removed from the database.");
-                // Optionally, update the table view after deletion
                 AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
-                tableViewManager.initializeTable(gestAthRemTableview, gestAthRemIDcol, gestAthRemNomCol, gestAthRemSexeCol, gestAthRemPaysCol, gestAthRemBirthdateCol);
+                tableViewManager.initializeTable(gestAthRemTableview, gestAthRemIDcol, gestAthRemNomCol, gestAthRemSexeCol, gestAthRemPaysCol, gestAthRemBirthdateCol, gestAthRemDiscIDCol);  // Fixed name here
             } else {
                 System.out.println("No athlete found with ID " + id);
             }
@@ -102,7 +98,6 @@ public class gestAthRemController {
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle SQL exception
         }
     }
 }

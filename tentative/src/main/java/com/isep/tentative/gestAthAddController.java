@@ -37,16 +37,13 @@ public class gestAthAddController {
     @FXML
     private Button bConfAddAth2;
 
-    // Method to handle insertion of athlete data into the database
     @FXML
     protected void onbConfAddAthButtonClick() {
-        // Get input values from text fields
         String name = fieldName.getText();
-        boolean gender = Integer.parseInt(fieldGender.getText()) == 1; // Convert to boolean
+        boolean gender = Integer.parseInt(fieldGender.getText()) == 1;
         String country = fieldCountry.getText();
-        LocalDate birthdate = LocalDate.parse(fieldBirthdate.getText()); // Parse birthdate string to LocalDate
+        LocalDate birthdate = LocalDate.parse(fieldBirthdate.getText());
 
-        // Insert the data into the database
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
             String sql = "INSERT INTO \"Athlete\" (\"Nom\", \"Sexe\", \"Pays\", \"Date de naissance\") VALUES (?, ?, ?, ?)";
@@ -63,7 +60,6 @@ public class gestAthAddController {
         }
     }
 
-    // Method to handle cancel button click
     @FXML
     protected void onbConfAddAth1ButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestAth.fxml"));
@@ -72,7 +68,6 @@ public class gestAthAddController {
         mainStage.setScene(scene);
     }
 
-    // Method to handle clear button click
     @FXML
     protected void onbConfAddAth2ButtonClick() {
         // Clear all text fields

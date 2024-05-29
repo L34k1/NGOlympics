@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestAthAddDisController">
+    <children>
+        <TextField fx:id="fieldAthID" layoutX="140.0" layoutY="69.0" promptText="ID athlete" />
+        <TextField fx:id="fieldDisID" layoutX="140.0" layoutY="118.0" promptText="ID discipline" />
+        <Text layoutX="101.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Athlète" />
+        <Text layoutX="102.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Discipline" />
+        <Button fx:id="bConfAddAth" layoutX="460.0" layoutY="313.0" mnemonicParsing="false" text="Modifier la discipline de l'athlète" onAction="#onbConfAddAthButtonClick" />
+        <Button fx:id="bConfAddAth1" layoutX="63.0" layoutY="313.0" mnemonicParsing="false" text="Annuler" onAction="#onbConfAddAth1ButtonClick" />
+        <Button fx:id="bConfAddAth2" layoutX="233.0" layoutY="313.0" mnemonicParsing="false" text="Vider le formulaire" onAction="#onbConfAddAth2ButtonClick" />
+    </children>
+</AnchorPane>

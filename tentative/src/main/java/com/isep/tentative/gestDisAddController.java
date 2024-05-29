@@ -10,37 +10,33 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import static com.isep.tentative.HelloApplication.mainStage;
 
-public class gestResultAddController {
+public class gestDisAddController {
 
     @FXML
-    private TextField fieldMedaille;
+    private TextField fieldName;
 
     @FXML
-    private TextField fieldValidation;
+    private Button bConfAddAth;
 
     @FXML
-    private Button bConfAddResult;
+    private Button bConfAddAth1;
 
     @FXML
-    private Button bConfAddResult1;
+    private Button bConfAddAth2;
 
     @FXML
-    private Button bConfAddResult2;
-
-    @FXML
-    protected void onbConfAddResultButtonClick() {
-        String medaille = fieldMedaille.getText();
-        String validation = fieldValidation.getText();
+    protected void onbConfAddAthButtonClick() {
+        String name = fieldName.getText();
 
         try {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            String sql = "INSERT INTO \"Resultat\" (\"Médaille\", \"Validation\") VALUES (?, ?)";
+            String sql = "INSERT INTO \"Discipline\" (\"Nom\") VALUES (?)";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, medaille);
-            statement.setBoolean(2, Boolean.parseBoolean(validation));
+            statement.setString(1, name);
             statement.executeUpdate();
             conn.close();
         } catch (SQLException e) {
@@ -49,17 +45,15 @@ public class gestResultAddController {
     }
 
     @FXML
-    protected void onbConfAddResult1ButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestResult.fxml"));
+    protected void onbConfAddAth1ButtonClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestDis.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 680, 900);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
 
     @FXML
-    protected void onbConfAddResult2ButtonClick() {
-        // Clear all text fields
-        fieldMedaille.clear();
-        fieldValidation.clear();
+    protected void onbConfAddAth2ButtonClick() {
+        fieldName.clear();
     }
 }

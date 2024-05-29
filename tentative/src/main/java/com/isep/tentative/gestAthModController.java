@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -40,6 +39,9 @@ public class gestAthModController {
     private TableColumn<Athlete, LocalDate> dobCol;
 
     @FXML
+    TableColumn<Athlete, Integer> gestAthDiscIDCol;
+
+    @FXML
     private Button bReturn;
 
     @FXML
@@ -63,14 +65,11 @@ public class gestAthModController {
     @FXML
     private TextField fieldIDselector;
 
-    // Initialize the controller
     @FXML
     public void initialize() {
         AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
-        tableViewManager.initializeTable(table, IDcol, nomCol, sexeCol, paysCol, dobCol);
+        tableViewManager.initializeTable(table, IDcol, nomCol, sexeCol, paysCol, dobCol, gestAthDiscIDCol);
     }
-
-    // Method to load data into the table (Moved to TableViewManager)
 
     @FXML
     private void onBModClick() {
@@ -104,7 +103,7 @@ public class gestAthModController {
             if (rowsUpdated > 0) {
                 System.out.println("Athlete with ID " + id + " has been updated.");
                 AthleteTableViewManager tableViewManager = new AthleteTableViewManager();
-                tableViewManager.initializeTable(table, IDcol, nomCol, sexeCol, paysCol, dobCol);
+                tableViewManager.initializeTable(table, IDcol, nomCol, sexeCol, paysCol, dobCol, gestAthDiscIDCol);
             } else {
                 System.out.println("No athlete found with ID " + id);
             }

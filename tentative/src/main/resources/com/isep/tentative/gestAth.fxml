@@ -11,6 +11,7 @@
         <Button fx:id="bAddAth" layoutX="191.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbAddAthButtonClick" text="Ajouter un athlète" />
         <Button fx:id="bModAth" layoutX="371.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbModAthButtonClick" text="Modifier un athlète" />
         <Button fx:id="bRemAth" layoutX="558.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbRemAthButtonClick" text="Supprimer un athlète" />
+        <Button fx:id="bAthAddDis" layoutX="720.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbAthAddDisButtonClick" text="Set une discipline à un athlète" />
         <TableView fx:id="tableViewAth" layoutX="174.0" layoutY="94.0" prefHeight="322.0" prefWidth="512.0">
             <columns>
                 <TableColumn fx:id="gestAthIDcol" prefWidth="75.0" text="ID" />
@@ -18,6 +19,7 @@
                 <TableColumn fx:id="gestAthSexeCol" prefWidth="75.0" text="Sexe" />
                 <TableColumn fx:id="gestAthPaysCol" prefWidth="75.0" text="Pays" />
                 <TableColumn fx:id="gestAthBirthdateCol" prefWidth="75.0" text="Birthdate" />
+                <TableColumn fx:id="gestAthDiscIDCol" prefWidth="75.0" text="Discipline ID" />
             </columns>
         </TableView>
     </children>
