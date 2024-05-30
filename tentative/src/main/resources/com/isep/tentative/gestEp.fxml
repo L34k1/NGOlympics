@@ -11,7 +11,6 @@
         <Button fx:id="bAddEp" layoutX="191.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbAddEpButtonClick" text="Ajouter une épreuve" />
         <Button fx:id="bModEp" layoutX="371.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbModEpButtonClick" text="Modifier une épreuve" />
         <Button fx:id="bRemEp" layoutX="558.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbRemEpButtonClick" text="Supprimer une épreuve" />
-        <Button fx:id="bEpAddDis" layoutX="720.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbEpAddDisButtonClick" text="Définir une discipline pour une épreuve" />
         <TableView fx:id="tableViewEp" layoutX="174.0" layoutY="94.0" prefHeight="322.0" prefWidth="512.0">
             <columns>
                 <TableColumn fx:id="gestEpIDcol" prefWidth="75.0" text="ID" />

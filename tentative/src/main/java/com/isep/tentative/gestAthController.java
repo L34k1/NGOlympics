@@ -46,7 +46,7 @@ public class gestAthController {
     @FXML
     protected void onbRetourMainMenuButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainmenu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
@@ -54,7 +54,7 @@ public class gestAthController {
     @FXML
     protected void onbAddAthButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAthAdd.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Add Athlete");
         mainStage.setScene(scene);
     }
@@ -62,7 +62,7 @@ public class gestAthController {
     @FXML
     protected void onbModAthButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAthMod.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Modify Athlete");
         mainStage.setScene(scene);
     }
@@ -70,7 +70,7 @@ public class gestAthController {
     @FXML
     protected void onbRemAthButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAthRem.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Remove Athlete");
         mainStage.setScene(scene);
     }
@@ -78,7 +78,7 @@ public class gestAthController {
     @FXML
     protected void onbAthAddDisButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAthAddDis.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Remove Athlete");
         mainStage.setScene(scene);
     }

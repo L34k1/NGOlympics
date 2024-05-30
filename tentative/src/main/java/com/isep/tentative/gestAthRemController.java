@@ -63,7 +63,7 @@ public class gestAthRemController {
     @FXML
     protected void onBGestAthRemReturnButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestAth.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Remove Athlete");
         mainStage.setScene(scene);
     }

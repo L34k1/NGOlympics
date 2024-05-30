@@ -30,7 +30,7 @@ public class HelloApplication extends Application {
             System.err.println(e.getMessage());
         }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainmenu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setScene(scene);
         mainStage=stage;
         stage.show();

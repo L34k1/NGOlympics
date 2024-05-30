@@ -63,7 +63,7 @@ public class gestResultController {
     @FXML
     protected void onbRetourMainMenuButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainmenu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
@@ -71,7 +71,7 @@ public class gestResultController {
     @FXML
     protected void onbAddResultButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestResAdd.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Add Result");
         mainStage.setScene(scene);
     }
@@ -79,7 +79,7 @@ public class gestResultController {
     @FXML
     protected void onbModResultButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestResMod.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Modify Result");
         mainStage.setScene(scene);
     }

@@ -20,14 +20,14 @@ public class MainMenuController {
     @FXML
     protected void onbGestAthButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestAth.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
     @FXML
     protected void onbGestResButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestRes.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
@@ -35,7 +35,7 @@ public class MainMenuController {
     @FXML
     protected void onbGestDisButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestDis.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
@@ -43,7 +43,7 @@ public class MainMenuController {
     @FXML
     protected void onbGestEpButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestEp.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }

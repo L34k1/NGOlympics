@@ -47,7 +47,7 @@ public class gestDisAddController {
     @FXML
     protected void onbConfAddAth1ButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gestDis.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }

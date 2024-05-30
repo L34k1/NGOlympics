@@ -49,7 +49,7 @@ public class gestEpController {
     @FXML
     protected void onbRetourMainMenuButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("mainmenu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 680, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
     }
@@ -57,7 +57,7 @@ public class gestEpController {
     @FXML
     protected void onbAddEpButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestEpAdd.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Add Epreuve");
         mainStage.setScene(scene);
     }
@@ -65,7 +65,7 @@ public class gestEpController {
     @FXML
     protected void onbModEpButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestEpMod.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Modify Epreuve");
         mainStage.setScene(scene);
     }
@@ -73,7 +73,7 @@ public class gestEpController {
     @FXML
     protected void onbRemEpButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestEpRem.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Remove Epreuve");
         mainStage.setScene(scene);
     }
@@ -81,7 +81,7 @@ public class gestEpController {
     @FXML
     protected void onbEpAddDisButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestEpAddDis.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Remove Epreuve");
         mainStage.setScene(scene);
     }

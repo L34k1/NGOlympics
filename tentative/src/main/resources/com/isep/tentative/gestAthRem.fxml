@@ -11,13 +11,14 @@
     <children>
         <Button fx:id="bGestAthRemReturn" layoutX="143.0" layoutY="320.0" mnemonicParsing="false" text="Annuler" onAction="#onBGestAthRemReturnButtonClick"/>
         <Button fx:id="bGestAthRemRemove" layoutX="403.0" layoutY="320.0" mnemonicParsing="false" text="Supprimer athlète" onAction="#onBGestAthRemRemoveButtonClick"/>
-        <TableView fx:id="gestAthRemTableview" layoutX="114.0" layoutY="75.0" prefHeight="200.0" prefWidth="373.0">
+        <TableView fx:id="gestAthRemTableview" layoutX="114.0" layoutY="75.0" prefHeight="200.0" prefWidth="450.0">
             <columns>
                 <TableColumn fx:id="gestAthRemIDcol" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="gestAthRemNomCol" prefWidth="75.0" text="Nom" />
                 <TableColumn fx:id="gestAthRemSexeCol" prefWidth="75.0" text="Sexe" />
                 <TableColumn fx:id="gestAthRemPaysCol" prefWidth="75.0" text="Pays" />
                 <TableColumn fx:id="gestAthRemBirthdateCol" prefWidth="75.0" text="Birthdate" />
+                <TableColumn fx:id="gestAthRemDiscIDCol" prefWidth="75.0" text="Disc_ID" />
             </columns>
         </TableView>
         <TextField fx:id="gestAthRemIDfield" layoutX="233.0" layoutY="320.0" />

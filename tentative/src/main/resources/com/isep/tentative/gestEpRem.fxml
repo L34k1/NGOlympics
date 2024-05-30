@@ -9,16 +9,20 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestEpreuveRemController">
     <children>
-        <Button fx:id="bGestEpreuveRemReturn" layoutX="143.0" layoutY="320.0" mnemonicParsing="false" text="Annuler" onAction="#onBGestEpreuveRemReturnButtonClick"/>
-        <Button fx:id="bGestEpreuveRemRemove" layoutX="403.0" layoutY="320.0" mnemonicParsing="false" text="Supprimer épreuve" onAction="#onBGestEpreuveRemRemoveButtonClick"/>
-        <TableView fx:id="gestEpreuveRemTableview" layoutX="114.0" layoutY="75.0" prefHeight="200.0" prefWidth="373.0">
+        <Button fx:id="bGestEpreuveRemReturn" layoutX="143.0" layoutY="320.0" mnemonicParsing="false" onAction="#onBGestEpreuveRemReturnButtonClick" text="Annuler" />
+        <Button fx:id="bGestEpreuveRemRemove" layoutX="403.0" layoutY="320.0" mnemonicParsing="false" onAction="#onBGestEpreuveRemRemoveButtonClick" text="Supprimer épreuve" />
+        <TableView fx:id="tableViewEp" layoutX="37.0" layoutY="78.0" prefHeight="200.0" prefWidth="527.0">
             <columns>
-                <TableColumn fx:id="gestEpreuveRemIDcol" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="gestEpreuveRemLieuCol" prefWidth="75.0" text="Lieu" />
-                <TableColumn fx:id="gestEpreuveRemDateCol" prefWidth="75.0" text="date" />
+                <TableColumn fx:id="gestEpIDcol" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="gestEpLocationCol" prefWidth="75.0" text="Lieu" />
+                <TableColumn fx:id="gestEpDateCol" prefWidth="75.0" text="date" />
+            <TableColumn fx:id="gestEpNameCol" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="gestEpDisciplineCol" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="gestEpDiscIDCol" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="gestEpAthleteIDListCol" prefWidth="75.0" text="Column X" />
             </columns>
         </TableView>
         <TextField fx:id="gestEpreuveRemIDfield" layoutX="233.0" layoutY="320.0" />
-        <Label layoutX="252.0" layoutY="303.0" text="Epreuve ID to remove" />
+        <Label fx:id="gestEpreuveRemIDLabel" layoutX="252.0" layoutY="303.0" text="Epreuve ID to remove" />
     </children>
 </AnchorPane>

@@ -135,7 +135,7 @@ public class gestResultModController {
     @FXML
     private void onBReturnClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("gestRes.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         mainStage.setTitle("Return");
         mainStage.setScene(scene);
     }

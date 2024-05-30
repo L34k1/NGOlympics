@@ -9,21 +9,33 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestEpreuveModController">
     <children>
-        <TableView fx:id="table" layoutX="110.0" layoutY="51.0" prefHeight="200.0" prefWidth="381.0">
+        <TableView fx:id="tableViewEp" layoutX="42.0" layoutY="49.0" prefHeight="200.0" prefWidth="516.0">
             <columns>
-                <TableColumn fx:id="IDcol" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="nomCol" prefWidth="75.0" text="Lieu" />
-                <TableColumn fx:id="dobCol" prefWidth="75.0" text="date" />
+                <TableColumn fx:id="gestEpIDcol" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="gestEpDateCol" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="gestEpLocationCol" prefWidth="75.0" text="Lieu" />
+                <TableColumn fx:id="gestEpDisciplineCol" prefWidth="75.0" text="Discipline" />
+                <TableColumn fx:id="gestEpNameCol" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="gestEpDiscIDCol" prefWidth="75.0" text="Discipline ID" />
+                <TableColumn fx:id="gestEpAthleteIDListCol" prefWidth="69.0" text="AthIDlist" />
             </columns>
         </TableView>
-        <Button fx:id="bReturn" layoutX="29.0" layoutY="39.0" mnemonicParsing="false" text="Annuler" onAction="#onBReturnClick" />
-        <Button fx:id="bMod" layoutX="447.0" layoutY="336.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="88.0" text="Modifier" onAction="#onBModClick" />
-        <TextField fx:id="fieldNewLieu" layoutX="110.0" layoutY="271.0" promptText="Nouveau lieu" />
-        <TextField fx:id="fieldNewDate" layoutX="342.0" layoutY="271.0" promptText="Nouvelle date" />
-        <Label layoutX="73.0" layoutY="275.0" text="Lieu" />
-        <Label layoutX="501.0" layoutY="275.0" text="date" />
-        <Label layoutX="276.0" layoutY="323.0" text="Selecteur" />
-        <TextField fx:id="fieldIDselector" layoutX="226.0" layoutY="344.0" promptText="ID choisi" />
-        <Button fx:id="bClear" layoutX="100.0" layoutY="344.0" mnemonicParsing="false" text="Vider les champs" onAction="#onBClearClick" />
+        <Button fx:id="bReturn" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBReturnClick" text="Annuler" />
+        <Button fx:id="bMod" layoutX="514.0" layoutY="358.0" mnemonicParsing="false" onAction="#onBModClick" prefHeight="41.0" prefWidth="88.0" text="Modifier" />
+        <TextField fx:id="fieldNewLocation" layoutX="111.0" layoutY="259.0" promptText="Nouveau lieu" />
+        <TextField fx:id="fieldNewDate" layoutX="342.0" layoutY="259.0" promptText="Nouvelle date" />
+        <Label layoutX="73.0" layoutY="263.0" text="Lieu" />
+        <Label layoutX="500.0" layoutY="263.0" text="date" />
+        <Label layoutX="276.0" layoutY="378.0" text="Selecteur" />
+        <TextField fx:id="fieldIDselector" layoutX="226.0" layoutY="357.0" promptText="ID choisi" />
+        <Button fx:id="bClear" layoutX="2.0" layoutY="374.0" mnemonicParsing="false" onAction="#onBClearClick" text="Vider les champs" />
+      <TextField fx:id="fieldNewName" layoutX="111.0" layoutY="298.0" promptText="Nouveau nom" />
+      <TextField fx:id="fieldNewDiscipline" layoutX="342.0" layoutY="298.0" promptText="Nouvelle discipline" />
+      <TextField fx:id="fieldNewDisciplineID" layoutX="111.0" layoutY="332.0" promptText="Nouvel ID Discipline" />
+      <TextField fx:id="fieldNewAthleteIDList" layoutX="342.0" layoutY="332.0" promptText="Nouvelle Liste ID Athletes" />
+      <Label layoutX="70.0" layoutY="302.0" text="Nom" />
+      <Label layoutX="65.0" layoutY="336.0" text="ID Disc" />
+      <Label layoutX="498.0" layoutY="302.0" text="Discipline" />
+      <Label layoutX="500.0" layoutY="336.0" text="Liste ID Athlètes" />
     </children>
 </AnchorPane>
