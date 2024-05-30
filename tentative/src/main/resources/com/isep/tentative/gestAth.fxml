@@ -8,11 +8,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.tentative.gestAthController">
     <children>
         <Button fx:id="retourMainMenu" layoutX="34.0" layoutY="32.0" mnemonicParsing="false" onAction="#onbRetourMainMenuButtonClick" prefHeight="27.0" prefWidth="157.0" text="Retour au menu princpal" />
-        <Button fx:id="bAddAth" layoutX="191.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbAddAthButtonClick" text="Ajouter un athlète" />
-        <Button fx:id="bModAth" layoutX="371.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbModAthButtonClick" text="Modifier un athlète" />
-        <Button fx:id="bRemAth" layoutX="558.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbRemAthButtonClick" text="Supprimer un athlète" />
-        <Button fx:id="bAthAddDis" layoutX="720.0" layoutY="478.0" mnemonicParsing="false" onAction="#onbAthAddDisButtonClick" text="Set une discipline à un athlète" />
-        <TableView fx:id="tableViewAth" layoutX="174.0" layoutY="94.0" prefHeight="322.0" prefWidth="512.0">
+        <Button fx:id="bAddAth" layoutX="42.0" layoutY="466.0" mnemonicParsing="false" onAction="#onbAddAthButtonClick" text="Ajouter un athlète" />
+        <Button fx:id="bModAth" layoutX="221.0" layoutY="466.0" mnemonicParsing="false" onAction="#onbModAthButtonClick" text="Modifier un athlète" />
+        <Button fx:id="bRemAth" layoutX="417.0" layoutY="466.0" mnemonicParsing="false" onAction="#onbRemAthButtonClick" text="Supprimer un athlète" />
+        <Button fx:id="bAthAddDis" layoutX="624.0" layoutY="466.0" mnemonicParsing="false" onAction="#onbAthAddDisButtonClick" text="Set une discipline à un athlète" />
+        <TableView fx:id="tableViewAth" layoutX="190.0" layoutY="90.0" prefHeight="322.0" prefWidth="453.0">
             <columns>
                 <TableColumn fx:id="gestAthIDcol" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="gestAthNomCol" prefWidth="75.0" text="Nom" />
