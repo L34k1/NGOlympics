@@ -15,27 +15,27 @@ public class Athlete {
     private BooleanProperty gender;
     private StringProperty country;
     private StringProperty birthdate;
-    private IntegerProperty Discipline_ID;;
+    private IntegerProperty discipline_ID;;
 
-    public Athlete(int id, String name, boolean gender, String country, LocalDate birthdate, int disID) {
+    public Athlete(int id, String name, boolean gender, String country, LocalDate birthdate, Integer discipline_ID) {
         this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.gender = new SimpleBooleanProperty(gender);
         this.country = new SimpleStringProperty(country);
         this.birthdate = new SimpleStringProperty(String.valueOf(birthdate));
-        this.Discipline_ID = new SimpleIntegerProperty();
+        this.discipline_ID = new SimpleIntegerProperty(discipline_ID);
     }
 
     public int getDiscipline_ID() {
-        return Discipline_ID.get();
+        return discipline_ID.get();
     }
 
     public IntegerProperty discipline_IDProperty() {
-        return Discipline_ID;
+        return discipline_ID;
     }
 
     public void setDiscipline_ID(int discipline_ID) {
-        this.Discipline_ID.set(discipline_ID);
+        this.discipline_ID.set(discipline_ID);
     }
 
     public int getId() {

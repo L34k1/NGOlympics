@@ -20,17 +20,16 @@ public class AthleteTableViewManager {
                                 TableColumn<Athlete, String> countryCol,
                                 TableColumn<Athlete, LocalDate> birthdateCol,
                                 TableColumn<Athlete, Integer> gestAthDiscIDCol) {
-        // Set up cell value factories for table columns
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name")); // Adjust property name if necessary
-        genderCol.setCellValueFactory(new PropertyValueFactory<>("gender")); // Adjust property name if necessary
-        countryCol.setCellValueFactory(new PropertyValueFactory<>("country")); // Adjust property name if necessary
-        birthdateCol.setCellValueFactory(new PropertyValueFactory<>("birthdate")); // Adjust property name if necessary
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        genderCol.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        countryCol.setCellValueFactory(new PropertyValueFactory<>("country"));
+        birthdateCol.setCellValueFactory(new PropertyValueFactory<>("birthdate"));
         gestAthDiscIDCol.setCellValueFactory(new PropertyValueFactory<>("discipline_ID"));
 
-        // Load data into the table
         loadData(tableView);
     }
+
 
     private void loadData(TableView<Athlete> tableView) {
         try {
@@ -39,17 +38,15 @@ public class AthleteTableViewManager {
             PreparedStatement statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
 
-            // Clear existing data in the table
             tableView.getItems().clear();
 
-            // Populate table with data from the result set
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("Nom");
                 boolean gender = rs.getBoolean("Sexe");
                 String country = rs.getString("Pays");
                 LocalDate birthdate = rs.getDate("Date de naissance").toLocalDate();
-                Integer discipline_ID = rs.getInt("discipline_ID");
+                int discipline_ID = rs.getInt("Discipline_ID");
 
                 Athlete athlete = new Athlete(id, name, gender, country, birthdate, discipline_ID);
                 tableView.getItems().add(athlete);
@@ -60,5 +57,6 @@ public class AthleteTableViewManager {
             e.printStackTrace();
         }
     }
+
 
 }

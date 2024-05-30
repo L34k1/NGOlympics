@@ -37,8 +37,9 @@ ALTER TABLE "Epreuve"
 ADD FOREIGN KEY("id") REFERENCES "Discipline"("id")
 ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE "Resultat"
-ADD FOREIGN KEY("id") REFERENCES "Epreuve"("id")
-ON UPDATE NO ACTION ON DELETE NO ACTION;
+ADD CONSTRAINT "Resultat_Epreuve_ID_fkey"
+FOREIGN KEY ("Epreuve_ID") REFERENCES "Epreuve"("id")
+ON DELETE CASCADE;
 
 INSERT INTO "Athlete" ("Nom", "Sexe", "Pays", "Date de naissance")
 VALUES ('Maria Rodriguez', FALSE, 'Spain', '1995-08-12');

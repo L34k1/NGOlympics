@@ -19,7 +19,7 @@
                 <TableColumn fx:id="gestAthSexeCol" prefWidth="75.0" text="Sexe" />
                 <TableColumn fx:id="gestAthPaysCol" prefWidth="75.0" text="Pays" />
                 <TableColumn fx:id="gestAthBirthdateCol" prefWidth="75.0" text="Birthdate" />
-                <TableColumn fx:id="gestAthDiscIDCol" prefWidth="75.0" text="Discipline ID" />
+                <TableColumn fx:id="gestAthDiscIDCol" prefWidth="75.0" text="Discipline_ID" />
             </columns>
         </TableView>
     </children>
