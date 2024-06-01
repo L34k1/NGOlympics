@@ -29,7 +29,7 @@ CREATE TABLE "Epreuve" (
     "Discipline" VARCHAR(255) NOT NULL,
     "nom" VARCHAR(255) NOT NULL,
     "Discipline_ID" INTEGER NOT NULL,
-    "Athlete_ID_List" INTEGER[] NOT NULL,
+    "Athlete_ID_List" VARCHAR(255) NOT NULL,
     FOREIGN KEY ("Discipline_ID") REFERENCES "Discipline" ("id") ON DELETE CASCADE
 );
 
